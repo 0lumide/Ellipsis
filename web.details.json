@@ -1,0 +1,9 @@
+{
+    "title": "Ellipsis",
+    "description": "Simple Chrome extension",
+    "details": "This is a chrome extension that replaces three consecutive periods with an ellipsis",
+    "destinationLink": "https://chrome.google.com/webstore/detail/ellipsis/pgjlnpabcfhabjjhlmnicgfgbfkmcone",
+    "iconImage": "img/icon.png",
+    "media": [],
+    "ignore": false
+}

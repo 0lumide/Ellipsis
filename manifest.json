@@ -26,6 +26,5 @@
     },
     "manifest_version": 2,
     "name": "Ellipsis",
-    "version": "0.0.0.1",
-    "default_locale": "en"
+    "version": "0.0.0.1"
 }
