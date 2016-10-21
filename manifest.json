@@ -4,6 +4,7 @@
             "js": [
                 "js/jquery-3.1.1.min.js",
                 "js/insQ.min.js",
+                "js/jquery.caret.min.js",
                 "js/external.js",
                 "hawk.js"
             ],
@@ -26,5 +27,5 @@
     },
     "manifest_version": 2,
     "name": "Ellipsis",
-    "version": "0.0.0.1"
+    "version": "v0.0.0.2"
 }

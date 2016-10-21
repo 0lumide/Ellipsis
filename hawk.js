@@ -7,7 +7,7 @@ function attachInputTextListener(input_dom) {
 	input_dom.addEventListener("input", function(e) {
 		var sourceText = $(e.target).val();
 		if(sourceText.includes(three_dots)) {
-			var cursorPosition = e.target.selectionStart;
+			var cursorPosition = getCursorPosition(e.target);
 			var firstDotPosition = sourceText.indexOf(three_dots);
 			$(e.target).val(sourceText.replace(three_dots, ellipsis));
 			if(cursorPosition != 0) {
@@ -20,10 +20,10 @@ function attachInputTextListener(input_dom) {
 
 function attachEditableTextListener(editable_dom) {
 	editable_dom.addEventListener("input", function(e) {
-		var sourceText = $(e.target).text();
-		if(sourceText.includes(three_dots)) {
+		var sourceText;
+		while((sourceText = $(e.target).text()).includes(three_dots)) {
 			$(getNodesThatContain(e.target, three_dots)).each(function() {
-				var cursorPosition = getCaretPosition(this);
+				var cursorPosition = getCursorPosition(this);
 				var firstDotPosition = $(this).text().indexOf(three_dots);
 				$(this).text(sourceText.replace(three_dots, ellipsis));
 				if(cursorPosition != 0) {
@@ -53,6 +53,14 @@ function getNewCursorPosition(oldCursorPosition, firstDotPosition) {
 	return 0;
 }
 
+function getCursorPosition(dom) {
+	if("selectionStart" in dom) {
+		return dom.selectionStart;
+	} else {
+		return getCaretPosition(dom);
+	}
+}
+
 function positionCursor(dom, position) {
 	if("selectionStart" in dom) {
 		dom.selectionStart = position;
@@ -67,9 +75,45 @@ function getDomsFromNodes(dom_nodes, selector) {
 }
 
 function ellipsisInserted(dom) {
+	// Show ripple animation at cursor position
+	var offset = $(dom).caret('offset');
+	var width = offset.height*2;
+	var ripple = $("#ellipsis-ripple");
+	ripple.css("top", offset.top - 0.5*offset.height + "px");
+	ripple.css("left", offset.left - 0.5*width + "px");
+	ripple.css("height", width + "px");
+	ripple.css("width", width + "px");
+	ripple.css("transform", "scale(0)");
+	ripple.css("border", 0.5*width + "px solid #d9da1a");
+	ripple.show();
+	ripple.css("box-sizing", "border-box");
+	ripple.css("z-index", 9999);
+	ripple.css("transform", "scale(1)");
+	ripple.one("transitionend", function(){
+		ripple.css("border-width", "0px");
+		ripple.one("transitionend", function(){
+			ripple.hide();
+		});
+	});
+	// // transform: scale(1);
 	console.log("Ellipsis inserted");
 }
 
+function createRippleDom() {
+	// Create ripple and add to dom
+	var ripple = $(document.createElement("div"));
+	ripple.css("transition", "all 0.1s ease")
+	ripple.attr("id","ellipsis-ripple");
+	ripple.css("position", "absolute");
+	ripple.css("border-radius", "100%");
+	ripple.css("opacity", "0.3");
+	ripple.css("box-sizing", "border-box");
+	ripple.css("z-index", 9999);
+	ripple.hide();
+	$(document.body).append(ripple);
+}
+
+createRippleDom();
 // Get all doms made editable with contenteditable.
 // The contenteditable property is inheritable
 // and as a result any of the childeren could be the one containing
