@@ -1,7 +1,7 @@
 const three_dots = "...";
 const ellipsis = "…";
-const input_selector = "input[type='text'], input:not([type]), textarea";
-const editable_selector = "[contenteditable='true']";
+const input_selector = "input[type='text'], input[type='search'],input:not([type]), textarea";
+const editable_selector = "[contenteditable='true'], [contenteditable='plaintext'], [contenteditable='plaintext-only']";
 var _enabled = true;
 
 function Ripple(element) {
