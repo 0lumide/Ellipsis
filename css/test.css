@@ -1,0 +1,63 @@
+html, body {
+  background:#F9F9F9;
+  padding: 0;
+  margin: 0;
+  font: 14px/1.6 "Lucida Grande", "Helvetica", sans-serif;
+  color: #333;
+}
+
+body {
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.test-inputs {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #dadada;
+  background: white;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+div.test-inputs, textarea.test-inputs {
+  height: 100px;
+}
+
+header {
+  margin-top: 70px;
+  margin-bottom: 50px;
+}
+
+header > h1 {
+  text-align: center;
+  font-size: 56px;
+}
+
+footer {
+  margin-top: 50px;
+}
+
+footer p {
+  text-align: center;
+  color: #777;
+}
+
+h2, a, p {
+  color: #333;
+}
+
+h2+p{
+  margin: 0;
+}
+
+button {
+  padding: 5px;
+  margin: 10px 0;
+}
+
+#inserted {
+  padding: 5px 10px 10px 50px;
+  background: #f0f0f0;
+}
