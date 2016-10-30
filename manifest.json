@@ -1,4 +1,7 @@
-{
+  {
+    "permissions": [
+      "storage"
+    ],
     "content_scripts": [
         {
             "js": [
@@ -7,6 +10,9 @@
                 "js/jquery.caret.min.js",
                 "js/external.js",
                 "hawk.js"
+            ],
+            "css": [
+               "css/hawk.css"
             ],
             "matches": [
                 "*://*/*"
@@ -25,7 +31,11 @@
         "48": "icon48.png",
         "128": "icon128.png"
     },
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Ellipsis",
-    "version": "v0.0.0.2"
+    "version": "0.0.1.0",
+    "browser_action": {
+        "default_icon": "icon16.png",
+        "default_popup": "popup.html"
+    }
 }

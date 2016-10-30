@@ -1,0 +1,59 @@
+html {
+  width: 200px;
+  height: 100px;
+}
+
+#button {
+  margin-left: auto;
+  margin-right: auto;
+  height: 25px;
+  width: calc(25px * 0.866);
+  border-radius: 25px;
+  box-shadow: 0 0 1px #b3b3b3;
+}
+
+#button.pause {
+  background-color: #ccc;
+  padding: calc(25px * 0.5)
+  calc(25px * 0.567)
+  calc(25px * 0.5)
+  calc(25px * 0.567);
+}
+
+#button.play {
+  background-color: orange;
+  padding: calc(25px * 0.5)
+  calc(25px * 0.425)
+  calc(25px * 0.5)
+  calc(25px * 0.709);
+}
+
+#button, #pause-play {
+  transition: all linear 0.1s;
+}
+
+#button.pause #pause-play:after{
+  height: 100%;
+  margin: 0 0 0 38.5%;
+  content: "";
+  display: block;
+  background-color: white;
+}
+
+#button.pause #pause-play {
+	box-sizing: border-box;
+  border-top: 0px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: calc(25px * 0.33) solid white;
+  height: 100%;
+}
+
+#button.play #pause-play {
+  border-top: calc(25px * 0.5) solid transparent;
+  border-bottom: calc(25px * 0.5) solid transparent;
+  border-left: calc(25px * 0.866) solid white;
+}
+
+#status {
+  text-align: center;
+}

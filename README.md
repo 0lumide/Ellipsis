@@ -6,6 +6,6 @@ It's available on the [webstore](https://chrome.google.com/webstore/detail/ellip
 
 Dependencies
 ============
-* [jQuery](http://jquery.com) just cause.
+* [jQuery](http://jquery.com), Caret.js depends on it.
 * [insertionQuery](https://github.com/naugtur/insertionQuery) for dynamically inserted dom.
 * [Caret.js](https://github.com/ichord/Caret.js) for locating the cursor.
