@@ -20,11 +20,13 @@ PausePlay.prototype._init = function() {
 
 PausePlay.prototype._pause = function() {
   this.button.classList.add("play");
+  this.button.title = "Enable Ellipsis"
   this.status.textContent = "Ellipsis is paused";
 }
 
 PausePlay.prototype._play = function() {
   this.button.classList.remove("play");
+  this.button.title = "Pause Ellipsis"
   this.status.textContent = "Ellipsis is enabled";
 }
 
