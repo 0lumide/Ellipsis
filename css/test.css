@@ -18,6 +18,7 @@ body {
   border: 1px solid #dadada;
   background: white;
   box-sizing: border-box;
+  font-family: monospace;
 }
 
 div.test-inputs, textarea.test-inputs {
